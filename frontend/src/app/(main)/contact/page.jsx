@@ -6,7 +6,7 @@ import React from 'react'
 const contact = () => {
   return (
     
-<div class="bg-neutral-900 max-h-[100%]">
+<div class="bg-neutral-900 h-screen]">
 
 <div style={{ width: '100%', height: '100%', position: 'absolute' }}>
   <Particles
