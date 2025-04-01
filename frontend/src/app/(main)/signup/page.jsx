@@ -1,29 +1,12 @@
-'use client'
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faEnvelope, faLock, faPhone } from "@fortawesome/free-solid-svg-icons";
-import Particles from "@/components/Particles";
 
 const SignUpPage = () => {
   return (
-  
-       <div  className='z-20 bg-black h-screen' style={{ width: '100%', height: '100%', position: 'absolute'}}>
-    <Particles
-      particleColors={['#0de415', '#0de415']}
-      particleCount={800}
-      particleSpread={10}
-      speed={0.1}
-      particleBaseSize={100}
-      moveParticlesOnHover={true}
-      alphaParticles={false}
-      disableRotation={true}
-    />
-
-
-   <div className="flex h-screen items-center justify-center z-100">
-
-      <div className="bg-gradient-to-br bg-black from-[#1a1a2e] to-[#302b63] p-10 rounded-xl shadow-xl w-full max-w-md text-white">
-        <h2 className="text-2xl font-bold text-center bg-clip-text  text-[#0de415] bg-gradient-to-r from-orange-500 via-pink-500 to-blue-500">
+    <div className="flex h-screen items-center justify-center bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#a600ff]">
+      <div className="bg-gradient-to-br from-[#1a1a2e] to-[#302b63] p-10 rounded-xl shadow-xl w-full max-w-md text-white">
+        <h2 className="text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-pink-500 to-blue-500">
           Create an Account
         </h2>
         <p className="text-gray-400 text-center">Sign up to get started</p>
@@ -87,7 +70,6 @@ const SignUpPage = () => {
           </a>
         </p>
       </div>
-    </div>
     </div>
   );
 };
