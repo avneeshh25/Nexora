@@ -84,7 +84,7 @@ const App = () => {
         </nav>
         
         <button className="bg-gray-800 text-white px-6 py-3 rounded-full text-lg">
-          <a href="/signup>
+          <a href="/signup">
           Login/Signup
               </a>
         </button>
