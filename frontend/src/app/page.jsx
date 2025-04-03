@@ -69,7 +69,7 @@ const App = () => {
           Nexor<span className="text-indigo-500">a</span>
         </div>
         <nav className="space-x-8 bg-gray-900 px-6 py-3 rounded-full">
-          <a href="#" className="text-green-400 text-lg">
+          <a href="/about" className="text-green-400 text-lg">
             Home
           </a>
           <a href="#" className="text-gray-400 text-lg">
