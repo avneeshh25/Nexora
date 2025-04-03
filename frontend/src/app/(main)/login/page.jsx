@@ -4,15 +4,15 @@ import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons"; // Impor
 
 const LoginPage = () => {
   return (
-    <div className="flex h-screen bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#a600ff] backdrop-blur-4xl">
-      <div className="flex flex-col items-center space-y-3 m-5">
-        <p className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-pink-500 to-blue-500">
+    <div className="flex flex-col lg:flex-row h-screen bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#a600ff] backdrop-blur-4xl p-4 lg:p-0">
+      <div className="flex flex-col items-center space-y-3 m-5 lg:m-0">
+        <p className="text-2xl lg:text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-pink-500 to-blue-500">
           Nexora
         </p>
       </div>
-      <div className="w-full lg:w-1/2 flex flex-col items-center justify-center p-10">
-        <div className="bg-gradient-to-br from-[#1a1a2e] to-[#302b63] p-10 rounded-xl shadow-xl w-full max-w-md text-black">
-          <h2 className="text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-pink-500 to-blue-500">
+      <div className="w-full lg:w-1/2 flex flex-col items-center justify-center p-6 lg:p-10">
+        <div className="bg-gradient-to-br from-[#1a1a2e] to-[#302b63] p-6 lg:p-10 rounded-xl shadow-xl w-full max-w-md text-black">
+          <h2 className="text-2xl lg:text-3xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-pink-500 to-blue-500">
             Welcome Back
           </h2>
           <p className="text-gray-500 text-center">Please enter your details</p>
