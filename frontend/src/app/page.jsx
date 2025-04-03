@@ -68,25 +68,24 @@ const App = () => {
         <div className="text-3xl font-bold">
           Nexor<span className="text-indigo-500">a</span>
         </div>
+        
         <nav className="space-x-8 bg-gray-900 px-6 py-3 rounded-full">
-          <a href="/" className="text-green-400 text-lg">
+          <a href="#" className="text-green-400 text-lg">
             Home
           </a>
-          <a href="/about" className="text-gray-400 text-lg">
+          <a href="#" className="text-gray-400 text-lg">
             About
           </a>
           <a href="#" className="text-gray-400 text-lg">
             Features
           </a>
-          <a href="/contact" className="text-gray-400 text-lg">
-            Contact
+          <a href="#" className="text-gray-400 text-lg">
+            Blog
           </a>
         </nav>
         
         <button className="bg-gray-800 text-white px-6 py-3 rounded-full text-lg">
-          <a href="/signup">
           Login/Signup
-              </a>
         </button>
       </header>
 
@@ -173,6 +172,59 @@ const App = () => {
         />
       </div>
       <BackgroundBeams></BackgroundBeams>
+      <footer className="bg-gray-900 text-gray-400 py-8">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Column 1: About */}
+          <div>
+            <h3 className="text-white text-lg font-bold mb-4">About Nexora</h3>
+            <p className="text-sm">
+              Nexora is your go-to platform for creating immersive and scalable real-time experiences. 
+              Simplify your communication with cutting-edge features.
+            </p>
+          </div>
+
+          {/* Column 2: Quick Links */}
+          <div>
+            <h3 className="text-white text-lg font-bold mb-4">Quick Links</h3>
+            <ul className="space-y-2">
+              <li>
+                <a href="#" className="hover:text-white">Home</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white">About</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white">Features</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white">Blog</a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Contact */}
+          <div>
+            <h3 className="text-white text-lg font-bold mb-4">Contact Us</h3>
+            <p className="text-sm">Email: support@nexora.com</p>
+            <p className="text-sm">Phone: +1 (123) 456-7890</p>
+            <div className="flex space-x-4 mt-4">
+              <a href="#" className="text-gray-400 hover:text-white">
+                <i className="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white">
+                <i className="fab fa-twitter"></i>
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white">
+                <i className="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="text-center text-sm mt-8 border-t border-gray-700 pt-4">
+          © {new Date().getFullYear()} Nexora. All rights reserved.
+        </div>
+      </footer>
     </div>
   );
 };
