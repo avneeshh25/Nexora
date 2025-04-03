@@ -51,10 +51,10 @@ const LoginPage = () => {
               <img src="icons8-google-48.png" alt="Google" />
             </div>
             <div className="bg-black p-4 rounded-full shadow-md cursor-pointer text-white flex items-center justify-center w-12 h-12">
-              <i className="fa-brands fa-facebook text-blue-700"></i>
+             <img src="images.png" alt=""facebook"/>
             </div>
             <div className="bg-blue-600 p-4 rounded-full shadow-md cursor-pointer text-white flex items-center justify-center w-12 h-12">
-              <i className="fa-brands fa-apple"></i>
+              <img src="Github-desktop-logo-symbol.svg.png" alt=""github"/>
             </div>
           </div>
         </div>
