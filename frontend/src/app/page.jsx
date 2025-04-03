@@ -85,7 +85,7 @@ const App = () => {
         </nav>
         
         <button className="bg-gray-800 text-white px-6 py-3 rounded-full text-lg">
-          <a href="login/page.jsx" >Login</a>
+          <a href="/signup" >SignUp</a>
         </button>
       </header>
 
