@@ -9,7 +9,11 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 //middleware
-app.use(cors({origin:'*'})); //to allow all origins to access the server
+app.use(cors({
+  origin: 'http://localhost:3000', // Your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 app.use(express.json()); //to parse json data
 app.use('/user', UserRouter);
 
@@ -37,7 +41,12 @@ app.get('/delete',(req,res)=>{
     res.send('response from delete ');
 })
 
+// Test endpoint
+app.get('/test', (req, res) => {
+  res.json({ message: 'Backend is connected!' });
+});
+
 //starting the server   
 app.listen(port, () => {
-    console.log("server is running")
+  console.log(`Server is running on port ${port}`);
 });

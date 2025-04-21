@@ -1,4 +1,4 @@
-// App.js
+// App.js - hello
 "use client";
 import React, { useEffect } from "react";
 import "./styles.css";
@@ -68,7 +68,7 @@ const App = () => {
         <div className="text-3xl font-bold">
           Nexor<span className="text-indigo-500">a</span>
         </div>
-        
+
         <nav className="space-x-8 bg-gray-900 px-6 py-3 rounded-full">
           <a href="/" className="text-green-400 text-lg">
             Home
@@ -83,10 +83,21 @@ const App = () => {
             Contact
           </a>
         </nav>
-        
-        <button className="bg-gray-800 text-white px-6 py-3 rounded-full text-lg">
-          <a href="/signup" >SignUp</a>
-        </button>
+
+        <div className="space-x-4">
+          <a
+            href="/login"
+            className="bg-indigo-600 text-white px-6 py-3 rounded-full text-lg hover:bg-indigo-700 transition-colors inline-block"
+          >
+            Login
+          </a>
+          <a
+            href="/signup"
+            className="bg-gray-800 text-white px-6 py-3 rounded-full text-lg hover:bg-gray-700 transition-colors inline-block"
+          >
+            SignUp
+          </a>
+        </div>
       </header>
 
       <main className="text-center mt-8 mb-20 flex flex-col items-center">
@@ -140,7 +151,7 @@ const App = () => {
       </section>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 max-w-7xl mx-auto">
-       <FeatureCard
+        <FeatureCard
           title="HD Video Calls"
           description="Crystal-clear video with low latency for seamless meetings."
           icon="frontend/public/6717aca6059072dc4b49dbff_Feature-image-3.webp"
@@ -178,7 +189,7 @@ const App = () => {
           <div>
             <h3 className="text-white text-lg font-bold mb-4">About Nexora</h3>
             <p className="text-sm">
-              Nexora is your go-to platform for creating immersive and scalable real-time experiences. 
+              Nexora is your go-to platform for creating immersive and scalable real-time experiences.
               Simplify your communication with cutting-edge features.
             </p>
           </div>
