@@ -142,7 +142,7 @@ export default function SignupPage() {
       <Vortex
         backgroundColor="black"
         rangeY={800}
-        particleCount={500}
+        particleCount={100}
         baseHue={120}
         className="w-full min-h-screen"
       >
