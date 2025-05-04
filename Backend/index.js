@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 const UserRouter = require('./routers/UserRouter');
+const ApikeyRouter = require('./routers/apiKey');
 
 //initializig express
 const app = express();
@@ -16,6 +17,7 @@ app.use(cors({
 }));
 app.use(express.json()); //to parse json data
 app.use('/user', UserRouter);
+app.use('/apikey', ApikeyRouter);
 
 //endpoint for the server   
 app.get('/',(req,res)=>{ 
