@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { IconCopy, IconCheck, IconTrash } from '@tabler/icons-react';
+import Button from '@/components/Buttoni';
 
 // Get the JWT token from localStorage or your auth context
 const getToken = () => localStorage.getItem('token'); // Adjust if you store token elsewhere
@@ -80,16 +81,16 @@ const chatapi = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-2 sm:px-4">
-      <div className="w-full max-w-2xl mt-12 p-4 sm:p-8 bg-white rounded shadow">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-black px-2 sm:px-4">
+      <div className="w-full max-w-2xl mt-12 p-4 sm:p-8 bg-gray-900 rounded shadow">
         <h1 className="text-2xl font-bold mb-6 text-blue-700">SDK API Key Dashboard</h1>
         {/* Generate Section */}
         <div className="mb-6">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-white mb-2">
             Select Feature
           </label>
           <select
-            className="block w-full rounded border-gray-300 focus:border-blue-500 focus:ring-blue-500 mb-4"
+            className="block w-full rounded bg-white border-gray-300 focus:border-blue-500 focus:ring-blue-500 mb-4"
             value={feature}
             onChange={e => setFeature(e.target.value)}
           >
@@ -108,7 +109,7 @@ const chatapi = () => {
               <input
                 type="text"
                 readOnly
-                className="flex-grow rounded-l border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+                className="flex-grow rounded-l text-white border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                 value={apiKey}
               />
               <button
@@ -175,7 +176,7 @@ const chatapi = () => {
           </div>
         </div>
         {/* Integration Example */}
-        <div className="bg-blue-50 p-4 rounded mt-6">
+        {/* <div className="bg-blue-50 p-4 rounded mt-6">
           <h2 className="font-semibold mb-2 text-blue-700">Integration Example</h2>
           <pre className="text-xs text-gray-700 overflow-x-auto">
             {`// JavaScript SDK Example:
@@ -191,7 +192,10 @@ const apiClient = new ChatSDK({
 apiClient.connect();
 `}
           </pre>
-        </div>
+        </div> */}
+        {/* DOCS BUTTON */}
+      <Button/>
+
       </div>
     </div>
   );

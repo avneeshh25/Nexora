@@ -2,7 +2,7 @@
 import Button from "@/components/Button";
 import { useState } from "react";
 
-const chatdocument = () => {
+const vediodocument = () => {
   const [activeTab, setActiveTab] = useState("overview");
 
   const renderContent = () => {
@@ -11,54 +11,123 @@ const chatdocument = () => {
         return (
           <div>
             <div className=" ">
-            <h2 className="text-2xl font-bold mb-2 text-white">CHAT</h2>
+            <h2 className="text-2xl font-bold mb-2 text-white">CHAT AND VIDEO CALLING SDK</h2>
             {/* <img className="" src="https://images.unsplash.com/photo-1521931961826-fe48677230a5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></img> */}
-            <p className="text-white">Nexora's Chat API offers real-time text messaging with features like message storage, typing indicators, read receipts, and rich media support. Designed for one-to-one, group, or large-scale conversations, it’s a scalable, secure, and customizable solution for customer engagement, social platforms, or enterprise collaboration.
-
-Use Chat as a standalone messaging solution or combine it with Voice Calling, Video Calling, Broadcast Streaming, and Interactive Live Streaming to create fully interactive, real-time experiences.
-
-Enhance your Chat-powered app with features like offline messaging, message translation, and customizable channel and user management. Support rich media messages—including emojis, structured messages, and file sharing—to deliver engaging and seamless communication for your users.</p>
-
-
+            <p className="text-white">A React-based SDK for implementing 1:1 chat and video calling functionality in your applications.</p>
 </div>
 
 <br/>
 
 <br/>
-<h2 className="text-2xl text-white font-bold mb-2">PRODUCT FEATURES</h2>
-<br/>
-<div className="grid grid-cols-1 md:grid-cols-3 gap-4 space-y-5 md:space-y-5">
-    <div className="mb-4 p-2">
-    <p className="text-blue-600 text-2xl">Scalable cross-platform messaging</p>
-    <p className="text-white">Integrate chat signaling, one-to-one private chat, or feature-rich group chat at scale with our chat SDK for mobile and desktop.</p>
-    </div>
-    <div className="mb-4 p-2">
-    <p className="text-blue-600 text-2xl">Message essentials</p>
-    <p className="text-white">Allow offline messaging, message recall and delete, read receipts, presence and typing indicator, push notifications, and exporting chat history.</p>
-    </div>
-    <div className="mb-4 p-2">
-    <p className="text-blue-600 text-2xl">Security and compliance</p>
-    <p className="text-white">Build a secure chat application with TLS/SSL and file encryption and ensure data privacy compliance by allowing users to erase their personal data.</p>
-    </div>
-    <div className="mb-4 p-2"> 
-    <p className="text-blue-600 text-2xl">Content moderation
-    </p>
-    <p className="text-white">Protect users from unwanted profanity, spam, and inappropriate images or text with robust content moderation built into the chat platform.</p>
-    </div>
-    <div className="mb-4 p-2">
-    <p className="text-blue-600 text-2xl">Rich media messages</p>
-    <p className="text-white">Support emojis, GPS locations, structured messages, push notifications, and rich-media files with auto-generated thumbnails with Nexora’s chat API service.</p>
-    </div>
-    <div className="mb-4 p-2">
-    <p className="text-blue-600 text-2xl">Message translation</p>
-    <p className="text-white">Enable auto, on-demand, or push translation so your users can chat in their preferred language.</p>
-    </div>
-</div>
-<br/>
+            <h2 className="text-2xl text-white font-bold mb-2">Installation</h2>
+            <hr className="text-white"/>
+            <div className="bg-blue-50 p-4 rounded mt-6">
+          <pre className="text-xl text-gray-700 overflow-x-auto">
+          npm install chat-video-sdk
+          </pre>
+        </div> 
+        <br/>
+        <h2 className="text-2xl text-white font-bold mb-2">Features</h2>
+        <hr className="text-white"/>
+        <ul className="list-disc list-inside text-white p-2">
+          <li>1:1 Real Time chat messaging</li>
+          <li>1:1 Video calling with WebRTC</li>
+          <li>React components for easy integration</li>
+          <li>TypeScript support</li>
+          <li>Customizable UI</li>
+        </ul>
+        <br/>
+        <h2 className="text-2xl text-white font-bold mb-2">Prerequisites</h2>
+        <hr className="text-white"/>
+        <ul className="list-disc list-inside text-white p-2">
+          <li>React 19.0.0 or higher</li>  
+          <li>A WebSocket/Socket.IO server for signaling</li>  
+        </ul>
+        <br/>
+        <h2 className="text-2xl text-white font-bold mb-2">Usage</h2>
+        <hr className="text-white"/>
+        <p className="text-white text-xl font-bold p-2">Chat Component</p>
+        <div className="bg-blue-50 p-4 rounded mt-6">
+          <pre className="text-xl text-gray-700 overflow-x-auto">
+          {`import { Chat } from 'chat-video-sdk';
+
+function App() {
+  return (
+    <Chat
+      userId="user1"
+      receiverId="user2"
+      serverUrl="https://your-signaling-server.com"
+    />
+  );
+}`}
+          </pre>
+        </div> 
+        <br/>
+        <p className="text-white text-xl font-bold p-2">Video Call Component</p>
+        <div className="bg-blue-50 p-4 rounded mt-6">
+          <pre className="text-xl text-gray-700 overflow-x-auto">
+          {`import { VideoCall } from 'chat-video-sdk';
+
+function App() {
+  return (
+    <VideoCall
+      userId="user1"
+      receiverId="user2"
+      serverUrl="https://your-signaling-server.com"
+      onCallEnded={() => console.log('Call ended')}
+    />
+  );
+}`}
+          </pre>
+        </div> 
+        <br/>
+        <h2 className="text-2xl text-white font-bold mb-2">Advanced Usage</h2>
+        <hr className="text-white"/>
+        <p className="text-white text-xl font-bold p-2">You can also use the services directly for more custom implementations:</p>
+        <div className="bg-blue-50 p-4 rounded mt-6">
+          <pre className="text-xl text-gray-700 overflow-x-auto">
+          {`import { ChatService, VideoService } from 'chat-video-sdk';
+
+// Initialize chat service
+const chatService = new ChatService({
+  userId: 'user1',
+  serverUrl: 'https://your-signaling-server.com',
+  onMessageReceived: (message) => {
+    console.log('New message:', message);
+  }
+});
+
+// Initialize video service
+const videoService = new VideoService({
+  userId: 'user1',
+  serverUrl: 'https://your-signaling-server.com',
+  onCallReceived: (callerId) => {
+    console.log('Incoming call from:', callerId);
+  }
+});`}
+          </pre>
+        </div> 
+        <br/>
+        <h2 className="text-2xl text-white font-bold mb-2">Server Requirements</h2>
+        <hr className="text-white"/>
+        <p className="text-white p-2">You'll need a signaling server that supports:</p>
+        <ul className="list-disc list-inside text-white p-2">
+          <li>WebSocket/Socket.IO connections</li>
+          <li>User registration/authentication</li>
+          <li>Message relaying</li>
+          <li>WebRTC signaling (offer/answer/ICE candidates)</li>
+        </ul>
+        <br/>
+        <hr className="text-white"/>
+        <br/>
+        <h2 className="text-2xl text-white font-bold mb-2">License</h2>
+        <p className="text-white text-xl font-bold">MIT</p>
+        <br />
+        <h3 className="text-white text-xl font-bold">keywords </h3>
+        <hr className="text-white"/>
+        <p className="text-red-500 hover:text-red-300">chat <br /> video-calling  <br />      web-rtc  <br />    real-time</p>
 <br/>
 <Button/>
-
-
           </div>
         );
       case "pricing":
@@ -253,64 +322,66 @@ Enhance your Chat-powered app with features like offline messaging, message tran
 </div>
           </div>
         );
-      case "integration":
-        return (
-          <div>
-            <h2 className="text-2xl font-bold mb-2 text-white">Enable and configure Chat</h2> <br />
-            <p className="text-white text-2xl">Prerequisites</p>
-            <p className="text-white p-2">To enable Chat, make sure that you have the following:</p>
-            <ul className="list-disc list-inside text-white p-2">
-              <li>A valid Nexora account.</li>
-              <li>A valid API key and secret.</li>
-              <li>An Nexora project that uses App ID and Token for authentication.</li>
-              <li>A Chat pricing plan. For details on how to subscribe, see Subscribe to the pricing plan.</li>
-              </ul>
-<br />
-            <p className="text-white text-2xl">Enable Chat</p>
-            <ol className="list-disc list-inside text-white p-2">
-              <li>Log in to the Nexora Console.</li>
-              <li>In the left navigation bar, click Project Management and click Config for the project that you want to use.</li>
-              <li>In the Features section of the Edit Project page, click Enable next to Chat to enable Chat.</li>
-              </ol>
-           <br />
-           <br />
-           <p className="text-white">For details about these advanced features, see the following:</p>
-           <ul className="list-disc list-inside text-white p-2">
-            <li className="text-white">Message Callback</li>    
-            <li className="text-white">Message Recall</li>    
-            <li className="text-white">Message Thread</li>    
-            <li className="text-white">Reaction</li>    
-            <li className="text-white">Offline Message Push (Advanced)</li>    
-            <li className="text-white">Presence</li>    
-            <li className="text-white">Translation</li>    
-            <li className="text-white">Moderation</li>    
-           </ul>
-           <br />
-           <h2 className="text-2xl font-bold mb-2 text-white">Get Chat project information</h2>
-           <p className="text-white p-1">Nexora Console assigns the following information to each project that enables Chat:</p>
-              <ul className="list-disc list-inside text-white p-2">
-                <li>Nexora Console assigns the following information to each project that enables Chat:</li>
-                <li>AppKey: The unique identifier that Chat assigns to each app.</li>
-                <li>OrgName: The unique identifier that Chat assigns to each enterprise (organization).</li>
-                <li>AppName: The name that Chat assigns to each app. Each app under the same enterprise (organization) must have a unique App Name.</li>
-                <li>API request url: The domain of the WebSocket and RESTful API request that Agora assigns to each project.</li>
-                </ul>
-                <br />
-                <p className="text-white">Follow these steps to get the project information:</p>
-                <ol className="list-disc list-inside text-white p-2">
-                  <li>Find your Chat-enabled project on the Project Management page on Agora Console and click Config.</li>
-                  <li>On the project edit page, find Chat and click Config.</li>
-                  <li>On the Chat config page, get the values of Data Center, AppKey, OrgName, AppName, WebSocket Address, and REST API.</li>
-                  </ol>
-                  <br />
-                  <h2 className="text-2xl font-bold mb-2 text-white">Manage users and generate tokens</h2>
-                  <p className="text-white p-2">For development purposes, Agora enables you to manage users and generate Chat user authentication tokens using Agora Console. In a production environment, you use the RESTful API to manage users and a token server to generate user authentication tokens.
+//        case "integration":
+//         return (
+//           <div>
+//             <h2 className="text-2xl font-bold mb-2 text-white">Quickstart</h2> <br />
+//             <p className="text-white text-2xl">Understand the tech</p>
+//             <p className="text-white p-2">To start a Video Calling session, implement the following steps in your app:</p>
+//             <ul className="list-disc list-inside text-white p-2">
+//               <li>Initialize the Agora Engine: Before calling other APIs, create and initialize an Agora Engine instance.</li>
+//               <li>Join a channel: Call methods to create and join a channel.</li>
+//               <li>Send and receive audio and video: All users can publish streams to the channel and subscribe to audio and video streams published by other users in the channel.</li>
+//               <li>A Chat pricing plan. For details on how to subscribe, see Subscribe to the pricing plan.</li>
+//               </ul>
+// <br />
+//             <p className="text-white text-2xl">Prerequisites</p>
+//             <ol className="list-disc list-inside text-white p-2">
+//               <li>Android Studio 4.2 or higher.</li>
+//               <li>Android SDK API Level 21 or higher.</li>
+//               <li>Two mobile devices running Android 5.0 or higher.</li>
+//               <li>A camera and a microphon.</li>
+//               <li>A valid Agora account and project. Please refer to Agora account management for details.</li>
+//               </ol>
+//            <br />
+//            <br />
+//            <p className="text-white">For details about these advanced features, see the following:</p>
+//            <ul className="list-disc list-inside text-white p-2">
+//             <li className="text-white">Message Callback</li>    
+//             <li className="text-white">Message Recall</li>    
+//             <li className="text-white">Message Thread</li>    
+//             <li className="text-white">Reaction</li>    
+//             <li className="text-white">Offline Message Push (Advanced)</li>    
+//             <li className="text-white">Presence</li>    
+//             <li className="text-white">Translation</li>    
+//             <li className="text-white">Moderation</li>    
+//            </ul>
+//            <br />
+//            <h2 className="text-2xl font-bold mb-2 text-white">Get Chat project information</h2>
+//            <p className="text-white p-1">Nexora Console assigns the following information to each project that enables Chat:</p>
+//               <ul className="list-disc list-inside text-white p-2">
+//                 <li>Nexora Console assigns the following information to each project that enables Chat:</li>
+//                 <li>AppKey: The unique identifier that Chat assigns to each app.</li>
+//                 <li>OrgName: The unique identifier that Chat assigns to each enterprise (organization).</li>
+//                 <li>AppName: The name that Chat assigns to each app. Each app under the same enterprise (organization) must have a unique App Name.</li>
+//                 <li>API request url: The domain of the WebSocket and RESTful API request that Agora assigns to each project.</li>
+//                 </ul>
+//                 <br />
+//                 <p className="text-white">Follow these steps to get the project information:</p>
+//                 <ol className="list-disc list-inside text-white p-2">
+//                   <li>Find your Chat-enabled project on the Project Management page on Agora Console and click Config.</li>
+//                   <li>On the project edit page, find Chat and click Config.</li>
+//                   <li>On the Chat config page, get the values of Data Center, AppKey, OrgName, AppName, WebSocket Address, and REST API.</li>
+//                   </ol>
+//                   <br />
+//                   <h2 className="text-2xl font-bold mb-2 text-white">Manage users and generate tokens</h2>
+//                   <p className="text-white p-2">For development purposes, Agora enables you to manage users and generate Chat user authentication tokens using Agora Console. In a production environment, you use the RESTful API to manage users and a token server to generate user authentication tokens.
 
-This section shows you how to register Chat users and generate temporary tokens using Agora Console.</p>
+// This section shows you how to register Chat users and generate temporary tokens using Agora Console.</p>
                   
-          </div>
-        );
-      default:
+//           </div>
+//         );
+//       default:
         return null;
     }
   };
@@ -341,7 +412,7 @@ This section shows you how to register Chat users and generate temporary tokens 
               Pricing Details
             </button>
           </li>
-          <li>
+          {/* <li>
             <button
               onClick={() => setActiveTab("integration")}
               className={`w-full text-left px-2 py-1 rounded ${
@@ -350,7 +421,7 @@ This section shows you how to register Chat users and generate temporary tokens 
             >
               How to Integrate
             </button>
-          </li>
+          </li> */}
         </ul>
       </div>
 
@@ -360,4 +431,4 @@ This section shows you how to register Chat users and generate temporary tokens 
   );
 };
 
-export default chatdocument;
+export default vediodocument;
