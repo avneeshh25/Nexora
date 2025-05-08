@@ -1,17 +1,15 @@
 
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
+export const content = [
     "./src/**/*.{js,jsx,ts,tsx}", // Adjust paths to match your project structure
-  ],
-  theme: {
+];
+export const theme = {
     extend: {
-      colors: {
-        primary: "#1D4ED8", // Example custom color
-        secondary: "#9333EA",
-      },
+        colors: {
+            primary: "#1D4ED8", // Example custom color
+            secondary: "#9333EA",
+        },
     },
-  },
-  plugins: [],
 };
+export const plugins = [];

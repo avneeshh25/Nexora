@@ -5,7 +5,7 @@ require('dotenv').config();
 const UserRouter = require('./routers/UserRouter');
 const ApikeyRouter = require('./routers/apiKey');
 
-//initializig express
+//initializing express
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -47,6 +47,33 @@ app.get('/delete',(req,res)=>{
 app.get('/test', (req, res) => {
   res.json({ message: 'Backend is connected!' });
 });
+const http = require('http');
+const { Server } = require('socket.io');
+
+app.use(cors());
+
+const server = http.createServer(app);
+const io = new Server(server, {
+  cors: {
+    origin: '*',
+    methods: ['GET', 'POST']
+  }
+});
+
+io.on('connection', (socket) => {
+  console.log(`User connected: ${socket.id}`);
+
+  socket.on('send_message', (data) => {
+    socket.broadcast.emit('receive_message', data); // broadcast to all except sender
+  });
+
+  socket.on('disconnect', () => {
+    console.log(`User disconnected: ${socket.id}`);
+  });
+});
+
+server.listen(8080, () => console.log('Server running on port 8080'));
+
 
 //starting the server   
 app.listen(port, () => {
