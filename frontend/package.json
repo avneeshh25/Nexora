@@ -41,6 +41,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.2.1",
     "preline": "^3.0.0",
-    "tailwindcss": "^4"
+    "tailwindcss": "^4",
+    "tailwindcss-animate": "^1.0.7"
   }
 }
