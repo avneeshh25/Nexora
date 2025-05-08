@@ -133,7 +133,7 @@ const videoService = new VideoService({
       case "pricing":
         return (
           <div >
-            <div class="bg-white py-6 sm:py-8 lg:py-12">
+            <div class="bg-gradient-to-l from-green-300 to-blue-200 py-6 sm:py-8 lg:py-12">
   <div class="mx-auto max-w-screen-xl px-4 md:px-8">
     <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-12">Pricing</h2>
 
@@ -389,14 +389,14 @@ const videoService = new VideoService({
   return (
     <div className="flex min-h-screen">
       {/* Sidebar */}
-      <div className="w-64  bg-blue-300 p-4 border-r">
-        <h1 className="text-xl font-semibold mb-4">Documentation</h1>
+      <div className="w-64  bg-black p-4 border-r">
+        <h1 className="text-xl font-semibold mb-4 text-white">Documentation</h1>
         <ul className="space-y-2">
           <li>
             <button
               onClick={() => setActiveTab("overview")}
-              className={`w-full text-left px-2 py-1 rounded ${
-                activeTab === "overview" ? "bg-blue-500 text-white" : "hover:bg-gray-200"
+              className={`w-full text-white text-left px-2 py-1 rounded ${
+                activeTab === "overview" ? "bg-blue-500 text-white" : "hover:bg-blue-300"
               }`}
             >
               Overview
@@ -405,8 +405,8 @@ const videoService = new VideoService({
           <li>
             <button
               onClick={() => setActiveTab("pricing")}
-              className={`w-full text-left px-2 py-1 rounded ${
-                activeTab === "pricing" ? "bg-blue-500 text-white" : "hover:bg-gray-200"
+              className={`w-full text-white text-left px-2 py-1 rounded ${
+                activeTab === "pricing" ? "bg-blue-500 text-white" : "hover:bg-blue-300"
               }`}
             >
               Pricing Details

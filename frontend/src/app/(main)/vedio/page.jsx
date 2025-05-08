@@ -5,18 +5,10 @@ const vedio = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative h-screen bg-black">
-        {/* <video
-          className="absolute inset-0 w-full h-full object-cover opacity-50"
-          src="https://youtu.be/K-0zJxppzBo" 
-          autoPlay
-          loop
-          muted
-          playsInline
-          
-        ></video> */}
+       <section className="relative h-screen bg-black">
+      
                 <iframe
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover opacity-50"
           src="https://www.youtube.com/embed/K-0zJxppzBo?autoplay=1&loop=1&mute=1&playlist=K-0zJxppzBo"
           title="YouTube video player"
           allow="autoplay; encrypted-media; fullscreen"
@@ -37,10 +29,10 @@ const vedio = () => {
               </p>
             </div> */}
             {/* Buttons */}
-            {/* <div className="text-center">
+            <div className="text-center">
               <a
                 className="inline-flex justify-center items-center gap-x-3 text-center bg-gradient-to-tl from-blue-600 to-violet-600 shadow-lg hover:shadow-blue-700/50 border border-transparent text-white text-sm sm:text-base font-medium rounded-full focus:outline-none focus:shadow-blue-700/50 py-3 px-6"
-                href="#"
+                href="/docs"
               >
                 Get started
                 <svg
@@ -58,10 +50,11 @@ const vedio = () => {
                   <path d="m9 18 6-6-6-6" />
                 </svg>
               </a>
-            </div> */}
+            </div>
           </div>
         </div>
-      </section>
+      </section> 
+    
 
       {/* Features Section */}
       <section className="bg-black p-10 sm:p-16 lg:p-20">

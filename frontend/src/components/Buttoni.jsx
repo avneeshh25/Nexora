@@ -11,7 +11,6 @@ const Button = () => {
     </StyledWrapper>
   );
 }
-
 const StyledWrapper = styled.div`
   .container {
     width: 1000px;

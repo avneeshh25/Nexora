@@ -49,9 +49,9 @@ const chatting = () => {
                     <div className="text-center">
                       <a
                         className="inline-flex justify-center items-center gap-x-3 text-center bg-gradient-to-tl from-blue-600 to-violet-600 shadow-lg hover:shadow-blue-700/50 border border-transparent text-white text-sm sm:text-base font-medium rounded-full focus:outline-none focus:shadow-blue-700/50 py-3 px-6"
-                        href="#"
+                        href="/docs"
                       >
-                        Get started
+                        Get Started
                         <svg
                           className="shrink-0 w-5 h-5"
                           xmlns="http://www.w3.org/2000/svg"
