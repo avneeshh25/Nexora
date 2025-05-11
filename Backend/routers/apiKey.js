@@ -63,4 +63,23 @@ router.post('/revoke', verifyToken, async (req, res) => {
   }
 });
 
+// Verify API key from SDK
+router.post('/verify', async (req, res) => {
+  try {
+    const { key } = req.body;
+    if (!key) {
+      return res.status(400).json({ error: 'API key is required' });
+    }
+
+    const apiKey = await ApiKey.findOne({ key, status: 'active' });
+    if (!apiKey) {
+      return res.status(401).json({ valid: false, error: 'Invalid or revoked API key' });
+    }
+
+    res.json({ valid: true, feature: apiKey.feature, user: apiKey.user });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 module.exports = router;

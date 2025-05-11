@@ -54,7 +54,7 @@ export default function LoginPage() {
       <Vortex
         backgroundColor="black"
         rangeY={800}
-        particleCount={500}
+        particleCount={200}
         baseHue={120}
         className="w-full h-full"
       >
@@ -140,7 +140,7 @@ export default function LoginPage() {
 
             <button
               type="submit"
-              disabled={loading}
+             
               className="w-full bg-indigo-600 text-white py-3 rounded-lg font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Login

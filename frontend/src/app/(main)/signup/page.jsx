@@ -28,9 +28,9 @@ const signupSchema = Yup.object().shape({
       'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character'
     ),
 
-  confirmPassword: Yup.string()
-    .required('Please confirm your password')
-    .oneOf([Yup.ref('password')], 'Passwords must match')
+  // confirmPassword: Yup.string()
+  //   .required('Please confirm your password')
+  //   .oneOf([Yup.ref('password')], 'Passwords must match')
 });
 
 export default function SignupPage() {

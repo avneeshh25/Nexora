@@ -456,7 +456,7 @@ chatRoom.on('participantJoined', (participant) => {
             <div className="space-y-8">
               <div className="bg-black/40 p-6 rounded-xl hover-scale">
                 <h3 className="text-2xl font-bold mb-3 flex items-center">
-                  <span className="inline-block w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mr-3 flex items-center justify-center text-white">1</span>
+                  <span className="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mr-3 flex items-center justify-center text-white">1</span>
                   Knowledge Sharing
                 </h3>
                 <p className="text-gray-300">We believe that educational technology should be accessible to all students regardless of financial resources. Our SDK represents our commitment to democratizing access to communication tools.</p>
@@ -464,7 +464,7 @@ chatRoom.on('participantJoined', (participant) => {
               
               <div className="bg-black/40 p-6 rounded-xl hover-scale">
                 <h3 className="text-2xl font-bold mb-3 flex items-center">
-                  <span className="inline-block w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mr-3 flex items-center justify-center text-white">2</span>
+                  <span className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mr-3 flex items-center justify-center text-white">2</span>
                   Practical Learning
                 </h3>
                 <p className="text-gray-300">By open-sourcing our code, we provide a real-world example that students can study, modify, and learn from - turning theory into practical knowledge.</p>
@@ -472,7 +472,7 @@ chatRoom.on('participantJoined', (participant) => {
               
               <div className="bg-black/40 p-6 rounded-xl hover-scale">
                 <h3 className="text-2xl font-bold mb-3 flex items-center">
-                  <span className="inline-block w-10 h-10 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-full mr-3 flex items-center justify-center text-white">3</span>
+                  <span className="w-10 h-10 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-full mr-3 flex items-center justify-center text-white">3</span>
                   Building a Community
                 </h3>
                 <p className="text-gray-300">By making Nexora freely available, we hope to build a community of student developers who can contribute, improve, and extend the platform for years to come.</p>
