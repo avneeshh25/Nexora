@@ -1,4 +1,3 @@
-import { Meteors } from '@/components/Meteors';
 import Particles from '@/components/Particles';
 import React from 'react'
 const about = () => {
