@@ -27,7 +27,7 @@ body {
     inset: 0;
     border-radius: inherit;
     padding: 2px;
-    background: linear-gradient(90deg, #a855f7, #ec4899, #5ddfc7);
+    background: linear-gradient(90deg, #38bdf8, #34d399); /* sky-400 to emerald-400 */
     -webkit-mask: linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -44,20 +44,15 @@ body {
   
   .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px -5px rgba(168, 85, 247, 0.2);
+    box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.2); /* sky-400 shadow */
   }
   
   /* Section Title */
   .gradient-text {
-    background: linear-gradient(90deg, #e46ee4, #8a9af8, #5ddfc7);
+    background: linear-gradient(to right, #38bdf8, #34d399); /* sky-400 to emerald-400 */
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    background: linear-gradient(90deg, #a855f7, #ec4899, #0891b2);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    display: inline-block;
   }
   
   @keyframes gradientMove {
@@ -267,6 +262,17 @@ body {
   }
   
   /* Animations */
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 3s linear infinite;
+  }
+  
   @keyframes gradientMove {
     0% {
       background-position: 0% 50%;
@@ -317,4 +323,3 @@ body {
     transform-style: preserve-3d;
     transition: transform 0.3s ease;
   }
-

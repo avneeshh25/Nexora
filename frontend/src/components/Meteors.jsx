@@ -12,12 +12,13 @@ export const Meteors = ({
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}>
+      transition={{ duration: 0.5 }}
+      className="relative w-full h-full"
+    >
       {meteors.map((el, idx) => {
         const meteorCount = number || 20;
-        // Calculate position to evenly distribute meteors across container width
-        const position = idx * (800 / meteorCount) - 400; // Spread across 800px range, centered
-
+        const delay = (idx * 2) % 20; // Stagger the animation
+        
         return (
           <span
             key={"meteor" + idx}
@@ -27,11 +28,12 @@ export const Meteors = ({
               className
             )}
             style={{
-              top: "-40px", // Start above the container
-              left: position + "px",
-              animationDelay: Math.random() * 5 + "s", // Random delay between 0-5s
-              animationDuration: Math.floor(Math.random() * (10 - 5) + 5) + "s", // Keep some randomness in duration
-            }}></span>
+              top: Math.floor(Math.random() * 50) - 200 + "px",
+              left: Math.floor(Math.random() * 100) + idx * (100 / meteorCount) + "%",
+              animationDelay: delay + "s",
+              animationDuration: "5s"
+            }}
+          />
         );
       })}
     </motion.div>
