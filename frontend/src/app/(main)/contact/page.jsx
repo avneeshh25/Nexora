@@ -10,8 +10,8 @@ const contact = () => {
 
 <div style={{ width: '100%', height: '100%', position: 'absolute' }}>
   <Particles
-    particleColors={['#0de415', '#0de415']}
-    particleCount={800}
+    particleColors={['#87CEEB', '#50C878']}
+    particleCount={100}
     particleSpread={10}
     speed={0.1}
     particleBaseSize={100}
@@ -25,7 +25,7 @@ const contact = () => {
     <div class="max-w-3xl mb-10 lg:mb-14">
       <h2 class="text-white font-semibold text-2xl md:text-4xl md:leading-tight">CONTACT<p className='size-25' ><RotatingText
     texts={['US','NOW']}
-    mainClassName="px-2 sm:px-2 md:px-3 bg-[#0de415] text-black  py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+    mainClassName="px-2 sm:px-2 md:px-3 bg-gradient-to-r from-sky-400 to-emerald-400 text-black  py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
     staggerFrom={"last"}
     initial={{ y: "100%" }}
     animate={{ y: 0 }}
@@ -146,7 +146,7 @@ const contact = () => {
             </p>
 
             <p class="mt-5">
-              <a class="group inline-flex items-center gap-x-2 py-2 px-3 bg-[#0de415] font-medium text-sm text-neutral-800 rounded-full focus:outline-hidden absolute" href="#">
+              <a class="group inline-flex items-center gap-x-2 py-2 px-3 bg-gradient-to-r from-sky-400 to-emerald-400 font-medium text-sm text-neutral-800 rounded-full focus:outline-hidden absolute" href="#">
                 Submit
                 <svg class="shrink-0 size-4 transition group-hover:translate-x-0.5 group-focus:translate-x-0.5 " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </a>
@@ -192,7 +192,7 @@ const contact = () => {
             <h4 class="text-white font-semibold">We're hiring</h4>
             <p class="mt-1 text-neutral-400">We're thrilled to announce that we're expanding our team and looking for talented individuals like you to join us.</p>
             <p class="mt-2">
-              <a class="group inline-flex items-center gap-x-2 font-medium text-sm text-[#0de415] decoration-2 hover:underline focus:outline-hidden focus:underline absolute" href="#">
+              <a class="group inline-flex items-center gap-x-2 font-medium text-sm bg-gradient-to-r from-sky-400 to-emerald-400 bg-clip-text text-transparent decoration-2 hover:underline focus:outline-hidden focus:underline absolute" href="#">
                 Job openings
                 <svg class="shrink-0 size-4 transition group-hover:translate-x-0.5 group-focus:translate-x-0.5 " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </a>
