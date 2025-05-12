@@ -6,7 +6,7 @@ const Button = () => {
   return (
     <StyledWrapper>
       <div className="container">
-        <div className="btn "><a href="/docs">INTEGRATE DOCS</a></div>
+        <div className="btn "><a href="/user/docs">INTEGRATE DOCS</a></div>
       </div>
     </StyledWrapper>
   );
@@ -85,7 +85,7 @@ const StyledWrapper = styled.div`
     bottom: -5px;
     width: 30px;
     height: 10px;
-    background: #1a89f7;
+    background: #50C878;
     border-radius: 10px;
     transition: 0.5s;
     transition-delay: 0.5;
@@ -106,7 +106,7 @@ const StyledWrapper = styled.div`
     top: -5px;
     width: 30px;
     height: 10px;
-    background: #1a89f7;
+    background: #50C878;
     border-radius: 10px;
     transition: 0.5s;
     transition-delay: 0.5;
