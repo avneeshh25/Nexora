@@ -144,7 +144,7 @@ export default function SignupPage() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
           whileHover={{ scale: 1.03, boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}
-          className="max-w-md w-full p-8 bg-gradient-to-br from-gray-800/60 to-gray-900/40 backdrop-blur-lg rounded-2xl border border-gray-700 shadow-xl opacity-70"
+          className="max-w-md w-full p-8 bg-gradient-to-br from-gray-800/60 to-gray-900/40 backdrop-blur-lg rounded-2xl border border-gray-700 shadow-xl opacity-70 hover:gradient-border"
         >
           <h2 className="text-3xl font-bold text-center mb-8 text-white">
             Create your account

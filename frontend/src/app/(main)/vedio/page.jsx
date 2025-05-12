@@ -6,23 +6,70 @@ const vedio = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] sm:min-h-[80vh] lg:h-screen bg-black">
-        <iframe
+      {/* <section className="relative min-h-[60vh] sm:min-h-[80vh] lg:h-screen bg-black"> */}
+        {/* <iframe
           className="absolute inset-0 w-full h-full object-cover opacity-50"
           src="https://www.youtube.com/embed/K-0zJxppzBo?autoplay=1&loop=1&mute=1&playlist=K-0zJxppzBo"
           title="YouTube video player"
           allow="autoplay; encrypted-media; fullscreen"
           allowFullScreen
-        ></iframe>
+        ></iframe> */}
+        {/* <div className="relative z-10 bg-gradient-to-b from-violet-600/10 via-transparent to-black/50 h-full flex items-center"> */}
+          {/* <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24 space-y-8"> */}
+            {/* Buttons */}
+            {/* <div className="text-center"> */}
+              {/* <a */}
+                {/* className="inline-flex justify-center items-center gap-x-3 text-center bg-gradient-to-tl from-blue-600 to-violet-600 shadow-lg hover:shadow-blue-700/50 border border-transparent text-white text-sm sm:text-base font-medium rounded-full focus:outline-none focus:shadow-blue-700/50 py-3 px-6" */}
+                {/* href="/docs" */}
+              {/* > */}
+                {/* Get started */}
+                {/* <svg
+                  className="shrink-0 w-5 h-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="m9 18 6-6-6-6" />
+                </svg> */}
+             {/* </div> </a> */}
+            {/* </div> */}
+          {/* </div> */}
+        {/* </div> */}
+      {/* </section> */}
+       <section className="relative min-h-[60vh] sm:min-h-[80vh] lg:h-screen bg-black">
+        
+        <img
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          src="https://cdn.pixabay.com/photo/2016/11/18/17/47/iphone-1836071_1280.jpg"
+          alt="Chatting Hero"
+        />
         <div className="relative z-10 bg-gradient-to-b from-violet-600/10 via-transparent to-black/50 h-full flex items-center">
           <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24 space-y-8">
+            {/* Title */}
+            <div className="max-w-3xl text-center mx-auto">
+              <h1 className="block font-medium bg-gradient-to-r from-sky-400 to-emerald-400 bg-clip-text text-transparent text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+                Now It's Easier Than Ever To Build Real-Time Applications
+              </h1>
+            </div>
+            {/* Subtitle */}
+            <div className="max-w-3xl text-center mx-auto">
+              <p className="text-base sm:text-lg md:text-xl text-white">
+                Build your real-time chatting application without hassle and worry by using Nexora.
+              </p>
+            </div>
             {/* Buttons */}
             <div className="text-center">
               <a
                 className="inline-flex justify-center items-center gap-x-3 text-center bg-gradient-to-tl from-blue-600 to-violet-600 shadow-lg hover:shadow-blue-700/50 border border-transparent text-white text-sm sm:text-base font-medium rounded-full focus:outline-none focus:shadow-blue-700/50 py-3 px-6"
-                href="/docs"
+                href="/user/docs"
               >
-                Get started
+                Get Started
                 <svg
                   className="shrink-0 w-5 h-5"
                   xmlns="http://www.w3.org/2000/svg"
