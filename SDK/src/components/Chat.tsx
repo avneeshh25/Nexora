@@ -2,15 +2,23 @@ import React, { useEffect, useState } from 'react';
 import { ChatService } from '../services/ChatService';
 import { Message } from '../types';
 import './styles.css';
+import { withApiKeyVerification } from './withApiKeyVerification';
 
 export interface ChatProps {
-  userId: string; // Make required to match ChatConfig
-  threadId?: string;
+  userId: string;
   receiverId: string;
+  apiKey: string;
   serverUrl: string;
+  onMessageReceived?: (message: Message) => void;
 }
 
-export const Chat: React.FC<ChatProps> = ({ userId, threadId, receiverId, serverUrl }) => {
+const ChatComponent: React.FC<ChatProps> = ({ 
+  userId, 
+  receiverId, 
+  apiKey, 
+  serverUrl,
+  onMessageReceived 
+}) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState('');
   const [chatService, setChatService] = useState<ChatService | null>(null);
@@ -22,10 +30,13 @@ export const Chat: React.FC<ChatProps> = ({ userId, threadId, receiverId, server
     }
 
     const service = new ChatService({
-      userId, // This is now guaranteed to be a string
+      userId,
       serverUrl,
       onMessageReceived: (message) => {
         setMessages(prev => [...prev, message]);
+        if (onMessageReceived) {
+          onMessageReceived(message);
+        }
       }
     });
 
@@ -34,7 +45,7 @@ export const Chat: React.FC<ChatProps> = ({ userId, threadId, receiverId, server
     return () => {
       service.disconnect();
     };
-  }, [userId, serverUrl]);
+  }, [userId, serverUrl, onMessageReceived]);
 
   const handleSendMessage = async () => {
     if (!inputMessage.trim() || !chatService) return;
@@ -73,3 +84,5 @@ export const Chat: React.FC<ChatProps> = ({ userId, threadId, receiverId, server
     </div>
   );
 };
+
+export const Chat = ChatComponent;

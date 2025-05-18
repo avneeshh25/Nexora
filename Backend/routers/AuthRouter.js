@@ -47,25 +47,8 @@ router.get('/api-keys/:userId', async (req, res) => {
     }
 });
 
-// Validate API key
-router.post('/validate-key', async (req, res) => {
-    try {
-        const { apiKey } = req.body;
-        const key = await ApiKeyModel.findOne({
-            key: apiKey,
-            isActive: true
-        });
-
-        if (!key) {
-            return res.status(401).json({ message: 'Invalid API key' });
-        }
-
-        res.json({ valid: true });
-    } catch (error) {
-        console.error('Error validating API key:', error);
-        res.status(500).json({ message: 'Error validating API key' });
-    }
-});
+// NOTE: API key validation is now handled by /apikey/verify endpoint
+// and the validateApiKey middleware
 
 // Deactivate API key
 router.post('/deactivate-key', async (req, res) => {

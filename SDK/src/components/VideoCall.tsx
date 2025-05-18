@@ -1,19 +1,24 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { VideoService } from '../services/VideoService';
+import { withApiKeyVerification } from './withApiKeyVerification';
 import './styles.css';
 
 export interface VideoCallProps {
   userId: string;
-  receiverId: string; // Now required
+  receiverId: string;
+  apiKey: string;
   serverUrl: string;
+  onCallReceived?: (callerId: string) => void;
   onCallEnded?: () => void;
   roomId?: string;
 }
 
-export const VideoCall: React.FC<VideoCallProps> = ({
+const VideoCallComponent: React.FC<VideoCallProps> = ({
   userId,
   receiverId,
+  apiKey,
   serverUrl,
+  onCallReceived,
   onCallEnded,
   roomId
 }) => {
@@ -103,3 +108,5 @@ export const VideoCall: React.FC<VideoCallProps> = ({
     </div>
   );
 };
+
+export const VideoCall = VideoCallComponent;

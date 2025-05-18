@@ -49,6 +49,8 @@ export const ApiKeyProvider: React.FC<ApiKeyProviderProps> = ({
   const [error, setError] = useState<Error | null>(null);
 
   const verifyApiKey = useCallback(async (key: string): Promise<boolean> => {
+    console.log(key);
+    
     try {
       const res = await fetch('http://localhost:5000/apikey/verify', {
         method: 'POST',

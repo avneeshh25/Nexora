@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router();
+const   router = express.Router();
 const ApiKey = require('../models/ApiKeyModel');
 const User = require('../models/UserModel');
 const crypto = require('crypto');
@@ -65,6 +65,8 @@ router.post('/revoke', verifyToken, async (req, res) => {
 
 // Verify API key from SDK
 router.post('/verify', async (req, res) => {
+  console.log(req.body);
+  
   try {
     const { key } = req.body;
     if (!key) {
@@ -72,11 +74,22 @@ router.post('/verify', async (req, res) => {
     }
 
     const apiKey = await ApiKey.findOne({ key, status: 'active' });
+    // console.log(apiKey);
+    
     if (!apiKey) {
       return res.status(401).json({ valid: false, error: 'Invalid or revoked API key' });
     }
 
     res.json({ valid: true, feature: apiKey.feature, user: apiKey.user });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+router.get('/getall', async (req, res) => {
+  try {
+    const apiKeys = await ApiKey.find();
+    res.json(apiKeys);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
