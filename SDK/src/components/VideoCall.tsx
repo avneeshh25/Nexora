@@ -1,225 +1,104 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { io, Socket } from 'socket.io-client';
-import { VideoCallProps } from '../types';
+import { VideoService } from '../services/VideoService';
 import './styles.css';
+
+export interface VideoCallProps {
+  userId: string;
+  receiverId: string; // Now required
+  serverUrl: string;
+  onCallEnded?: () => void;
+  roomId?: string;
+}
 
 export const VideoCall: React.FC<VideoCallProps> = ({
   userId,
   receiverId,
   serverUrl,
-  userName = 'You',
-  receiverName = 'User',
-  onCallStarted,
   onCallEnded,
-  onError
+  roomId
 }) => {
-  const [isInCall, setIsInCall] = useState(false);
-  const [socket, setSocket] = useState<Socket | null>(null);
-  
+  const [videoService, setVideoService] = useState<VideoService | null>(null);
   const localVideoRef = useRef<HTMLVideoElement>(null);
   const remoteVideoRef = useRef<HTMLVideoElement>(null);
-  const peerConnection = useRef<RTCPeerConnection | null>(null);
-  const localStream = useRef<MediaStream | null>(null);
 
-  // Initialize socket connection
   useEffect(() => {
-    const newSocket = io(serverUrl);
-    
-    newSocket.on("connect", () => {
-      newSocket.emit("register", userId);
+    // Create the service with all required properties
+    const service = new VideoService({
+      userId,
+      serverUrl, // This is now guaranteed to be a string
+      onCallEnded: () => {
+        if (onCallEnded) onCallEnded();
+      }
     });
 
-    setSocket(newSocket);
+    setVideoService(service);
 
     return () => {
-      newSocket.close();
+      service.disconnect();
     };
-  }, [serverUrl, userId]);
+  }, [userId, serverUrl, onCallEnded]);
 
-  // Handle incoming WebRTC signaling
   useEffect(() => {
-    if (!socket) return;
+    const attachStreams = () => {
+      if (videoService) {
+        const localStream = videoService.getLocalStream();
+        const remoteStream = videoService.getRemoteStream();
 
-    socket.on("offer", async ({ from, offer }) => {
-      try {
-        await handleOffer(offer);
-        const answer = await createAnswer();
-        socket.emit("answer", { to: from, answer });
-        setIsInCall(true);
-      } catch (err) {
-        onError?.(err as Error);
-      }
-    });
-
-    socket.on("answer", async ({ answer }) => {
-      try {
-        if (peerConnection.current) {
-          await peerConnection.current.setRemoteDescription(new RTCSessionDescription(answer));
+        if (localVideoRef.current && localStream) {
+          localVideoRef.current.srcObject = localStream;
         }
-      } catch (err) {
-        onError?.(err as Error);
-      }
-    });
 
-    socket.on("ice-candidate", async ({ candidate }) => {
-      try {
-        if (peerConnection.current) {
-          await peerConnection.current.addIceCandidate(new RTCIceCandidate(candidate));
+        if (remoteVideoRef.current && remoteStream) {
+          remoteVideoRef.current.srcObject = remoteStream;
         }
-      } catch (err) {
-        onError?.(err as Error);
-      }
-    });
-
-    socket.on("end-call", () => {
-      handleEndCall();
-    });
-
-    return () => {
-      socket.off("offer");
-      socket.off("answer");
-      socket.off("ice-candidate");
-      socket.off("end-call");
-    };
-  }, [socket, onError]);
-
-  const initializePeerConnection = () => {
-    peerConnection.current = new RTCPeerConnection({
-      iceServers: [{ urls: "stun:stun.l.google.com:19302" }]
-    });
-
-    peerConnection.current.onicecandidate = (event) => {
-      if (event.candidate) {
-        socket?.emit("ice-candidate", { 
-          to: receiverId, 
-          candidate: event.candidate 
-        });
       }
     };
 
-    peerConnection.current.ontrack = (event) => {
-      if (remoteVideoRef.current) {
-        remoteVideoRef.current.srcObject = event.streams[0];
-      }
-    };
-
-    if (localStream.current) {
-      localStream.current.getTracks().forEach(track => {
-        if (peerConnection.current) {
-          peerConnection.current.addTrack(track, localStream.current!);
-        }
-      });
-    }
-  };
+    attachStreams();
+  }, [videoService]);
 
   const handleStartCall = async () => {
     try {
-      // Get local media stream
-      localStream.current = await navigator.mediaDevices.getUserMedia({
-        video: true,
-        audio: true
-      });
-
-      if (localVideoRef.current) {
-        localVideoRef.current.srcObject = localStream.current;
+      // Add null check for receiverId
+      if (!receiverId) {
+        console.error("Cannot start call: receiverId is required");
+        return;
       }
-
-      // Initialize WebRTC
-      initializePeerConnection();
-
-      // Create and send offer
-      const offer = await peerConnection.current!.createOffer();
-      await peerConnection.current!.setLocalDescription(offer);
       
-      socket?.emit("offer", { to: receiverId, offer });
-      setIsInCall(true);
-      onCallStarted?.();
-    } catch (err) {
-      onError?.(err as Error);
-    }
-  };
-
-  const handleOffer = async (offer: RTCSessionDescriptionInit) => {
-    try {
-      localStream.current = await navigator.mediaDevices.getUserMedia({
-        video: true,
-        audio: true
-      });
-
-      if (localVideoRef.current) {
-        localVideoRef.current.srcObject = localStream.current;
-      }
-
-      initializePeerConnection();
-      await peerConnection.current!.setRemoteDescription(new RTCSessionDescription(offer));
-    } catch (err) {
-      throw err;
-    }
-  };
-
-  const createAnswer = async () => {
-    try {
-      const answer = await peerConnection.current!.createAnswer();
-      await peerConnection.current!.setLocalDescription(answer);
-      return answer;
-    } catch (err) {
-      throw err;
+      await videoService?.startCall(receiverId);
+    } catch (error) {
+      console.error('Error starting call:', error);
     }
   };
 
   const handleEndCall = () => {
-    if (localStream.current) {
-      localStream.current.getTracks().forEach(track => track.stop());
-    }
-
-    if (peerConnection.current) {
-      peerConnection.current.close();
-    }
-
-    if (localVideoRef.current) {
-      localVideoRef.current.srcObject = null;
-    }
-    if (remoteVideoRef.current) {
-      remoteVideoRef.current.srcObject = null;
-    }
-
-    socket?.emit("end-call", { to: receiverId });
-    setIsInCall(false);
-    onCallEnded?.();
+    videoService?.endCall();
   };
 
   return (
-    <div className="video-container">
-      <div className="video-header">
-        <h3>{isInCall ? `In call with ${receiverName}` : 'Video Call'}</h3>
-      </div>
-      
+    <div className="video-call-container">
       <div className="video-grid">
-        <div className="video-wrapper">
-          <video ref={localVideoRef} autoPlay playsInline muted />
-          <span className="video-label">{userName}</span>
+        <div className="video-wrapper local">
+          <video
+            ref={localVideoRef}
+            autoPlay
+            playsInline
+            muted
+          />
+          <span>You</span>
         </div>
-        <div className="video-wrapper">
-          <video ref={remoteVideoRef} autoPlay playsInline />
-          <span className="video-label">{receiverName}</span>
+        <div className="video-wrapper remote">
+          <video
+            ref={remoteVideoRef}
+            autoPlay
+            playsInline
+          />
+          <span>Remote User</span>
         </div>
       </div>
-
-      <div className="video-controls">
-        <button 
-          onClick={handleStartCall} 
-          disabled={isInCall}
-          className="call-button start"
-        >
-          Start Call
-        </button>
-        <button 
-          onClick={handleEndCall}
-          disabled={!isInCall}
-          className="call-button end"
-        >
-          End Call
-        </button>
+      <div className="controls">
+        <button onClick={handleStartCall}>Start Call</button>
+        <button onClick={handleEndCall}>End Call</button>
       </div>
     </div>
   );
