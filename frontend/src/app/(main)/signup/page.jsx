@@ -45,23 +45,23 @@ export default function SignupPage() {
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [backendConnected, setBackendConnected] = useState(false);
+  const [backendConnected, setBackendConnected] = useState(true);
   const [validationErrors, setValidationErrors] = useState({});
 
-  useEffect(() => {
+  // useEffect(() => {
     // Test backend connection when component mounts
-    const checkBackendConnection = async () => {
-      try {
-        await testConnection();
-        setBackendConnected(true);
-      } catch (err) {
-        setError('Unable to connect to the server. Please check if the backend is running.');
-        setBackendConnected(false);
-      }
-    };
+    // const checkBackendConnection = async () => {
+      // try {
+      //   await testConnection();
+      //   setBackendConnected(true);
+      // } catch (err) {
+      //   setError('Unable to connect to the server. Please check if the backend is running.');
+      //   setBackendConnected(false);
+      // }
+    // };
 
-    checkBackendConnection();
-  }, []);
+    // checkBackendConnection();
+  // }, []);
 
   const validateField = async (fieldName, value) => {
     try {
