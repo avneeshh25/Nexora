@@ -45,10 +45,20 @@ export default function ApiKeyDashboard({ onKeyGenerated }) {
         },
         body: JSON.stringify({ feature })
       })
+      
+      // Check if response is actually JSON before parsing
+      const contentType = res.headers.get('content-type')
+      if (!contentType || !contentType.includes('application/json')) {
+        const text = await res.text()
+        console.error('Non-JSON response:', text)
+        throw new Error(`Server returned non-JSON response: ${res.status} ${res.statusText}`)
+      }
+      
       const payload = await res.json()
       if (!res.ok) {
         throw new Error(payload.error || 'Failed to generate API key')
       }
+      
       setApiKey(payload.key)
       onKeyGenerated(payload.key)          // ← notify parent
       setRefresh(r => !r)

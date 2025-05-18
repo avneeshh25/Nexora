@@ -3,7 +3,7 @@ const router = express.Router();
 const ApiKey = require('../models/ApiKeyModel');
 const User = require('../models/UserModel');
 const crypto = require('crypto');
-const verifyToken = require('../middlewares/verifyToken');
+const verifyToken = require('../middleware/verifyToken');
 
 // Generate new API key (user authenticated via JWT)
 router.post('/generate', verifyToken, async (req, res) => {
